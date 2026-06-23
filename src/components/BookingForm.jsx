@@ -1,18 +1,39 @@
 import { useState } from 'react'
 import { useInView } from '../hooks/useInView'
 
+const INITIAL_FORM = {
+  name: '', email: '', phone: '', date: '', package: '', guests: '', message: ''
+}
+
 export default function BookingForm() {
   const [ref, inView] = useInView()
-  const [form, setForm] = useState({
-    name: '', email: '', phone: '', date: '', package: '', guests: '', message: ''
-  })
-  const [sent, setSent] = useState(false)
+  const [form, setForm] = useState(INITIAL_FORM)
+  const [status, setStatus] = useState('idle') // idle | loading | success | error
+  const [errorMsg, setErrorMsg] = useState('')
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value })
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
-    setSent(true)
+    setStatus('loading')
+    setErrorMsg('')
+
+    try {
+      const res = await fetch('/api/booking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.')
+
+      setStatus('success')
+    } catch (err) {
+      setErrorMsg(err.message || 'Unable to send your enquiry. Please try again.')
+      setStatus('error')
+    }
   }
 
   return (
@@ -43,7 +64,6 @@ export default function BookingForm() {
               Fill out the enquiry form and our team will get back to you within 24 hours to confirm availability and finalise your exclusive Blue Nutmeg charter.
             </p>
 
-            {/* Contact info */}
             <div className="space-y-5">
               {[
                 {
@@ -74,7 +94,6 @@ export default function BookingForm() {
               ))}
             </div>
 
-            {/* Social */}
             <div className="mt-10 flex gap-3">
               {['Instagram', 'Facebook', 'TripAdvisor'].map(s => (
                 <a key={s} href="#" className="text-[10px] tracking-[0.2em] uppercase text-white/30 hover:text-gold-400 transition-colors border border-white/10 hover:border-gold-400/40 px-3 py-1.5">
@@ -86,7 +105,9 @@ export default function BookingForm() {
 
           {/* Form */}
           <div className={`lg:col-span-3 transition-all duration-1000 delay-200 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            {sent ? (
+
+            {/* Success state */}
+            {status === 'success' ? (
               <div className="text-center py-24 border border-gold-400/20 bg-navy-950/50">
                 <div className="w-16 h-16 border border-gold-400 rounded-full flex items-center justify-center mx-auto mb-6">
                   <svg className="w-7 h-7 text-gold-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -94,8 +115,10 @@ export default function BookingForm() {
                   </svg>
                 </div>
                 <h3 className="font-serif text-3xl text-white mb-3">Enquiry Received</h3>
-                <p className="text-white/50 font-light">Our team will contact you within 24 hours to confirm your charter.</p>
-                <p className="text-gold-400 text-sm mt-4">Thank you, {form.name}!</p>
+                <p className="text-white/50 font-light max-w-sm mx-auto leading-relaxed">
+                  Our team will contact you within 24 hours. Check your inbox — we've sent you our full charter catalog.
+                </p>
+                <p className="text-gold-400 text-sm mt-4">Thank you, {form.name.split(' ')[0]}!</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="border border-white/10 bg-navy-950/50 p-8 space-y-5">
@@ -178,9 +201,29 @@ export default function BookingForm() {
                   />
                 </div>
 
-                <button type="submit" className="btn-gold w-full text-sm py-4">
-                  Send Enquiry
+                {/* Error message */}
+                {status === 'error' && (
+                  <div className="border border-red-500/30 bg-red-500/10 px-4 py-3 text-red-400 text-xs font-light">
+                    {errorMsg}
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={status === 'loading'}
+                  className="btn-gold w-full text-sm py-4 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                  {status === 'loading' ? (
+                    <>
+                      <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3"/>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/>
+                      </svg>
+                      Sending...
+                    </>
+                  ) : 'Send Enquiry'}
                 </button>
+
                 <p className="text-white/25 text-[10px] text-center tracking-wide">
                   We respond within 24 hours · No payment required to enquire
                 </p>

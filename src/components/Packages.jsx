@@ -3,13 +3,31 @@ import { useInView } from '../hooks/useInView'
 
 const packages = [
   {
-    tier: 'Half Day',
-    duration: '4 Hours',
-    price: 'IDR 4,500,000',
-    priceNote: 'up to 10 guests',
+    tier: 'Sunrise',
+    duration: '3 Hours',
+    price: 'IDR 1,400,000',
+    priceNote: 'per person',
     image: '/images/yacht-wide.jpg',
     badge: null,
-    color: 'from-blue-900/30',
+    color: 'from-orange-900/30',
+    includes: [
+      'Professional skipper & crew',
+      'Welcome drinks & light breakfast',
+      'Stunning sunrise views',
+      'Towels provided',
+      'Life jackets provided',
+      'Fuel included',
+    ],
+    desc: 'Start your day on the water as the sun rises over Bali — a serene and breathtaking way to experience the catamaran.'
+  },
+  {
+    tier: 'Half Day',
+    duration: '4 Hours',
+    price: 'IDR 1,600,000',
+    priceNote: 'per person',
+    image: '/images/yacht-hero.jpg',
+    badge: 'Most Popular',
+    color: 'from-gold-500/20',
     includes: [
       'Professional skipper & crew',
       'Welcome drinks & snacks',
@@ -18,64 +36,25 @@ const packages = [
       'Life jackets provided',
       'Fuel included',
     ],
-    desc: 'A perfect taste of sailing life — glide through calm waters, snorkel a pristine reef, and soak up the sun before lunch.'
+    desc: 'A perfect taste of sailing life — glide through calm waters, snorkel a pristine reef, and soak up the Bali sun.'
   },
   {
-    tier: 'Full Day',
-    duration: '8 Hours',
-    price: 'IDR 8,500,000',
-    priceNote: 'up to 10 guests',
-    image: '/images/yacht-hero.jpg',
-    badge: 'Most Popular',
-    color: 'from-gold-500/20',
-    includes: [
-      'Professional skipper & crew',
-      'Full breakfast & lunch on board',
-      'Premium drinks & refreshments',
-      'Snorkeling & water toys',
-      'Island stop & beach time',
-      'Sunset cocktails included',
-      'Towels, sunscreen & gear',
-    ],
-    desc: 'Our signature full-day voyage — island hopping, beach picnics, snorkeling, and a golden sunset to close the perfect day.'
-  },
-  {
-    tier: 'Sunset Cruise',
+    tier: 'Sunset',
     duration: '3 Hours',
-    price: 'IDR 3,200,000',
-    priceNote: 'up to 12 guests',
+    price: 'IDR 1,400,000',
+    priceNote: 'per person',
     image: '/images/yacht-sail.jpg',
     badge: null,
     color: 'from-orange-900/20',
     includes: [
       'Professional skipper & crew',
       'Champagne & canapés',
-      'Live acoustic music',
       'Curated sunset playlist',
       'Photography spots',
-      'Premium evening lighting',
+      'Life jackets provided',
+      'Fuel included',
     ],
     desc: 'The most romantic experience on the water — sip champagne as the sky ignites in amber and rose around you.'
-  },
-  {
-    tier: 'Overnight',
-    duration: '24 Hours',
-    price: 'IDR 15,000,000',
-    priceNote: 'up to 8 guests',
-    image: '/images/yacht-cabin.jpg',
-    badge: 'Premium',
-    color: 'from-navy-700/40',
-    includes: [
-      'Full crew on board',
-      'All meals & premium bar',
-      'Private cabin accommodation',
-      'Two snorkeling excursions',
-      'Fishing rods & equipment',
-      'Stargazing kit',
-      'Morning yoga on deck',
-      'Chef-prepared breakfast',
-    ],
-    desc: 'Fall asleep in a private bay, wake to birdsong and still waters. The ultimate immersive catamaran experience.'
   },
 ]
 
@@ -123,7 +102,7 @@ export default function Packages() {
         </div>
 
         {/* Package cards */}
-        <div ref={ref} className={`grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 ${inView ? 'animate-fade-up' : 'opacity-0'}`}>
+        <div ref={ref} className={`grid md:grid-cols-3 gap-px bg-white/5 ${inView ? 'animate-fade-up' : 'opacity-0'}`}>
           {packages.map((pkg, i) => (
             <div
               key={pkg.tier}
@@ -189,7 +168,7 @@ export default function Packages() {
         {/* Custom note */}
         <div className="mt-10 text-center">
           <p className="text-white/40 text-sm font-light">
-            Need something bespoke? We create <span className="text-gold-400">custom multi-day packages</span> for special occasions, corporate events & exclusive getaways.
+            Need something bespoke? We create <span className="text-gold-400">custom packages</span> for special occasions, corporate events & exclusive getaways.
           </p>
           <a href="#booking" className="inline-block mt-4 text-xs tracking-[0.2em] uppercase text-white/40 hover:text-gold-400 transition-colors animated-underline">
             Enquire about custom charters →
