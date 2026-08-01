@@ -1,12 +1,12 @@
 import { useInView } from '../hooks/useInView'
 
 const specs = [
-  { label: 'Length', value: '45 ft' },
-  { label: 'Beam', value: '24 ft' },
-  { label: 'Max Guests', value: '12 pax' },
-  { label: 'Cabins', value: '4 Cabins' },
-  { label: 'Crew', value: 'Professional' },
-  { label: 'Built', value: '2008' },
+  { label: 'LOA', value: '12 m' },
+  { label: 'Beam', value: '6 m' },
+  { label: 'Max Guests', value: '8 pax' },
+  { label: 'Cabins', value: '2 + Crew' },
+  { label: 'Crew', value: '3 Persons' },
+  { label: 'Built', value: '2016' },
 ]
 
 export default function About() {

@@ -8,6 +8,7 @@ import Gallery from './components/Gallery'
 import Testimonials from './components/Testimonials'
 import BookingForm from './components/BookingForm'
 import Footer from './components/Footer'
+import Specifications from './components/Specifications'
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <Navbar />
       <Hero />
       <About />
+      <Specifications />
       <Experience />
       <Packages />
       <Gallery />

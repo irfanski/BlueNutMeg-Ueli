@@ -74,7 +74,7 @@ export default function BookingForm() {
                 {
                   icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>,
                   label: 'Email',
-                  value: 'charter@bluenutmeg.com'
+                  value: 'charter@bluenutmegcruises.com'
                 },
                 {
                   icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>,
@@ -169,11 +169,9 @@ export default function BookingForm() {
                       className="w-full bg-navy-900 border border-white/10 focus:border-gold-400/60 text-white text-sm px-4 py-3 outline-none transition-colors"
                     >
                       <option value="" disabled>Select package</option>
-                      <option value="half-day">Half Day (4 Hours) — IDR 4,500,000</option>
-                      <option value="full-day">Full Day (8 Hours) — IDR 8,500,000</option>
-                      <option value="sunset">Sunset Cruise (3 Hours) — IDR 3,200,000</option>
-                      <option value="overnight">Overnight (24 Hours) — IDR 15,000,000</option>
-                      <option value="custom">Custom / Special Request</option>
+                      <option value="sunrise">Sunrise (3 Hours) — IDR 1,400,000</option>
+                      <option value="half-day">Half Day (4 Hours) — IDR 1,600,000</option>
+                      <option value="sunset">Sunset (3 Hours) — IDR 1,400,000</option>
                     </select>
                   </div>
                   {/* Guests */}
