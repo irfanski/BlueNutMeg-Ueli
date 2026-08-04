@@ -7,7 +7,7 @@ const packages = [
     duration: '3 Hours',
     price: 'IDR 1,400,000',
     priceNote: 'per person',
-    image: '/images/yacht-wide.jpg',
+    image: '/images/DJI_0544.jpg',
     badge: null,
     color: 'from-orange-900/30',
     includes: [
@@ -25,7 +25,7 @@ const packages = [
     duration: '4 Hours',
     price: 'IDR 1,600,000',
     priceNote: 'per person',
-    image: '/images/yacht-hero.jpg',
+    image: '/images/DJI_0530.jpg',
     badge: 'Most Popular',
     color: 'from-gold-500/20',
     includes: [
@@ -43,7 +43,7 @@ const packages = [
     duration: '3 Hours',
     price: 'IDR 1,400,000',
     priceNote: 'per person',
-    image: '/images/yacht-sail.jpg',
+    image: '/images/DJI_0542.jpg',
     badge: null,
     color: 'from-orange-900/20',
     includes: [

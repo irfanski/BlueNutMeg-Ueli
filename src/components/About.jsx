@@ -31,7 +31,7 @@ export default function About() {
               {/* Main image */}
               <div className="relative overflow-hidden">
                 <img
-                  src="/images/yacht-hero.jpg"
+                  src="/images/DJI_0530.jpg"
                   alt="Blue Nutmeg catamaran"
                   className="w-full h-[480px] object-cover"
                 />
@@ -51,7 +51,7 @@ export default function About() {
             {/* Secondary image */}
             <div className="mt-8 ml-12 overflow-hidden">
               <img
-                src="/images/yacht-salon.jpg"
+                src="/images/DSC01986.jpg"
                 alt="Blue Nutmeg interior salon"
                 className="w-2/3 h-40 object-cover ml-auto"
               />

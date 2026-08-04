@@ -126,7 +126,7 @@ export default function Experience() {
 
         {/* Interior showcase strip */}
         <div className="mt-20 grid grid-cols-3 gap-3">
-          {['/images/yacht-salon.jpg', '/images/yacht-cabin.jpg', '/images/yacht-nav.jpg'].map((img, i) => (
+          {['/images/DSC01986.jpg', '/images/DSC02020.jpg', '/images/DSC02038.jpg'].map((img, i) => (
             <div key={i} className="relative overflow-hidden group cursor-pointer">
               <img src={img} alt="Blue Nutmeg interior" className="w-full h-52 object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-navy-950/40 group-hover:bg-navy-950/10 transition-all duration-500" />

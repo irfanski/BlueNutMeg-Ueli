@@ -2,19 +2,19 @@ import { useEffect, useState } from 'react'
 
 const slides = [
   {
-    img: '/images/yacht-hero.jpg',
+    img: '/images/DJI_0530.jpg',
     headline: 'Set Sail Into',
     headline2: 'The Extraordinary',
     sub: 'Private catamaran charters in the heart of paradise'
   },
   {
-    img: '/images/yacht-sail.jpg',
+    img: '/images/DJI_0542.jpg',
     headline: 'Where Luxury',
     headline2: 'Meets the Open Sea',
     sub: 'Exclusive day trips, sunset cruises & overnight escapes'
   },
   {
-    img: '/images/yacht-wide.jpg',
+    img: '/images/DJI_0544.jpg',
     headline: 'Your Own',
     headline2: 'Ocean Sanctuary',
     sub: 'Tailored experiences aboard Blue Nutmeg catamaran'
